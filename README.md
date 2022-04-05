@@ -20,7 +20,7 @@
     
     
 # Sobre ASPNET.CORE 
-  É um evolução do ASP.NET 4 ou seja é um novo framework de desenvolvimento web que roda na plataforma .net-core
+  É uma evolução do ASP.NET 4 ou seja é um novo framework de desenvolvimento web que roda na plataforma .net-core
     
     
     
