@@ -1,7 +1,7 @@
 # Sobre o .NET
 
-  .NET Core (6 LTS) é uma nova plataforma de desenvolvimento mais enxtuda do .net-framework da MS onde o mesmo tras diversos recursos otimizados open-source 
-   rodando em diversos sistemas operacionais. 
+  .NET Core (6 LTS) é uma nova plataforma de desenvolvimento mais enxtuda do .net-framework da MS onde o mesmo tras 
+   diversos recursos otimizados com capacidade de 7 Milhões de requisição por segundo. É uma plataforma open-sourcerodando em diversos sistemas operacionais, 
    A Microsoft recomenda que para a criação de novos projetos web o ideal é inicializar utilizando o .NET-CORE
 
   .NET Framework acabou ficando absoleto devido a dificuldade de adicionar novas funcionalidades pelo excesso
@@ -17,6 +17,10 @@
  .NET-FRAMEWORK
     - Aplicações web com ASP.NET Core e ASP.NET 4x
     - Aplicações de interface windows com c# (Windows Forms)
+    
+    
+# Sobre ASPNET.CORE 
+  É um evolução do ASP.NET 4 ou seja é um novo framework de desenvolvimento web que roda na plataforma .net-core
     
     
     
