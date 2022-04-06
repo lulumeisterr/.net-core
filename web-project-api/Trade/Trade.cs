@@ -4,9 +4,9 @@ namespace web_project_api.Trade
     {
         public static List<Trade> trades = new List<Trade>();
         private int tradeId;
-        private string tradingDate;
+        private DateTime tradingDate;
         private string tradeStatusCode;
-        public Trade(int tradeId, string tradingDate, string tradeStatusCode) {
+        public Trade(int tradeId, DateTime tradingDate, string tradeStatusCode) {
             this.tradeId = tradeId;
             this.tradingDate = tradingDate;
             this.tradeStatusCode = tradeStatusCode;
@@ -15,7 +15,7 @@ namespace web_project_api.Trade
         public Trade() {}
 
 //getset
-        public string TradingDate { 
+        public DateTime TradingDate { 
             get => tradingDate; 
             set => tradingDate = value; 
         }

@@ -15,9 +15,12 @@ app.MapPost("/trade", (Trade trade) => {
 });
 
 app.MapGet("/getTrade/{tradeId}", ([FromRoute] int tradeId) => {
-    return Trade.trades.FirstOrDefault(i => i.TradeId == tradeId);
+    return Trade.trades.FirstOrDefault(t => t.TradeId == tradeId);
 });
 
+app.MapGet("/getTrade", ([FromQuery] DateTime dateEnd) => {
+    return Trade.trades.Where(t => t.TradingDate >= dateEnd);
+});
 
 // Alterando header de resposta
 app.MapGet("/AddHeader", (HttpResponse response) => {
