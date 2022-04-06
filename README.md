@@ -1,4 +1,4 @@
-# Sobre o .NET
+# Sobre o .NET 
 
   .NET Core (6 LTS) é uma nova plataforma de desenvolvimento mais enxtuda do .net-framework da MS onde o mesmo tras 
    diversos recursos otimizados com capacidade de 7 Milhões de requisição por segundo. É uma plataforma open-sourcerodando em diversos sistemas operacionais, 
