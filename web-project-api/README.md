@@ -15,6 +15,13 @@
     sempre devem ser especificado no escopo para que o framework consiga encontrar 
     todas as referencias necessarias. O Framework só associa a injeção se todos os pontos
     for mapeado corretamente.
+
+    # Ciclos de vida
+      - Scoped : Para cada requisição solicitada no injetor, o mesmo cria apenas uma unica instancia na memoria e processa até finalizar o ciclo da aplicação ou seja até o 200 OK ou erro. para as proximas requisições é realizado o mesmo procedimento.
+
+      - Transient : Para cada instancia solicitada a partir do injetor de dependencia, é gerada uma nova instancia de objeto na memoria, só é discartado quando a requisição é encerrada.
+
+      - Singleton : A instancia só é criada somente se for chamar via injetor mas a finalização do ciclo dela só encerra se a aplicação for finalizada.
 # Comandos de execução
   - dotnet watch run
   - donet run
