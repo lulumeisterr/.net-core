@@ -17,7 +17,7 @@
     for mapeado corretamente.
 
     # Ciclos de vida
-      - Scoped : Para cada requisição solicitada no injetor, o mesmo cria apenas uma unica instancia na memoria e processa até finalizar o ciclo da aplicação ou seja até o 200 OK ou erro. para as proximas requisições é realizado o mesmo procedimento.
+      - Scoped : Para cada requisição solicitada no injetor, o mesmo cria apenas uma unica instancia de objeto na memoria e reutiliza a mesma instancia até finalizar o ciclo da aplicação ou seja até o 200 OK ou erro no mesmo contexto. 
 
       - Transient : Para cada instancia solicitada a partir do injetor de dependencia, é gerada uma nova instancia de objeto na memoria, só é discartado quando a requisição é encerrada.
 
