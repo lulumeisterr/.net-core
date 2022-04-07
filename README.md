@@ -20,12 +20,12 @@
 # Sobre ASPNET.CORE 
   - É uma evolução do ASP.NET 4 ou seja é um novo framework de desenvolvimento web que roda na plataforma .net-core
     
-# Estrutura basica.
+# Estrutura básica.
   - O Arquivo .csproj é responsavel por se comunicar com a CLI antes de rodar o app.
   - Program.cs responsavel por executar as instruções iniciais da app.
   - Pasta bin, é referente aos builds e artefatos apos ser compilado e gerado uma nova versão
 
-# Instrução de nivel superior
+# Instrução de nível superior
   - A partir do C# 10, varios contextos foram otimizados facilitando a criação de scripts 
     onde não é necessário criar classes, namespaces e metodos main.
     
