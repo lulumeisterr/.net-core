@@ -1,16 +1,17 @@
 using web_project_api.app.Model;
-namespace web_project_api.app.TradeRepository
-{
-    public class TradeRepository
+namespace web_project_api.app.Repositorys;
+
+    public class TradeRepository : ITradeRepository
     {
-        public TradeRepository() {}
-
-        public static List<Trade> trades;
-
-        public void add (Trade trade) {
-            if(trades == null) {
+        private static List<Trade> trades;
+        
+        public TradeRepository() {
+            if (trades == null) {
                 trades = new List<Trade>();
             }
+        }
+
+        public void add (Trade trade) {
             trades.Add(trade);
         }
 
@@ -33,5 +34,9 @@ namespace web_project_api.app.TradeRepository
              var tradeSaved = getTradeById(tradeId);
              trades.Remove(tradeSaved);
         }
+
+        public List<Trade>  Trades { 
+            get => trades; 
+            set => trades = value; 
+        }
     }
-}
