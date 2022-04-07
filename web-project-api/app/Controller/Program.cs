@@ -12,6 +12,7 @@ TradeRepository tradeRepository = new TradeRepository();
 
 app.MapPost("/trades", (Trade trade) => {
     tradeRepository.add(trade);
+    return Results.Created($"/trades/{trade.TradeId}",trade);
 });
 
 app.MapPut("/trades", (Trade trade) => {
@@ -23,11 +24,22 @@ app.MapDelete("/trades/{tradeId}", ([FromRoute] int tradeId) => {
 });
 
 app.MapGet("/trades/{tradeId}", ([FromRoute] int tradeId) => {
-    return tradeRepository.getTradeById(tradeId);
+    var result = tradeRepository.getTradeById(tradeId);
+    if (result != null ) {
+        return Results.Ok(tradeRepository.getTradeById(tradeId));
+    } else {
+        return Results.NotFound();
+    }
 });
 
-app.MapGet("/trades", ([FromQuery] DateTime startDate , [FromQuery] DateTime endDate) => {
-    return tradeRepository.searchTradeByDate(startDate,endDate);
+app.MapGet("/trades", ([FromQuery] DateTime startDate , [FromQuery] DateTime endDate) => {  
+    var result = tradeRepository.searchTradeByDate(startDate,endDate);
+    if ( result == null || !result.Any() ) {
+        return Results.NoContent();
+    } else {
+        return Results.Ok( tradeRepository.searchTradeByDate(startDate,endDate) ); 
+    }
+   
 });
 
 /**
