@@ -1,8 +1,7 @@
-namespace web_project_api.Trade
+namespace web_project_api.app.Model
 {
     public class Trade
     {
-        public static List<Trade> trades = new List<Trade>();
         private int tradeId;
         private DateTime tradingDate;
         private string tradeStatusCode;

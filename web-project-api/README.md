@@ -1,9 +1,11 @@
 # Configuração de portas
   - Properties > LaunchSetting > applicationUrl
 # Endpoints de teste
-  https://localhost:7198/trade
-  https://localhost:7198/getTrade?dateEnd={dt}
-  https://localhost:7198/getTrade/{tradeId}
+  - [POST] : https://localhost:7198/trade
+  - [GET] : https://localhost:7198/trade?startDate=2022-04-01&endDate=2022-04-02
+  - [GET] : https://localhost:7198/trade/{tradeId}
+  - [PUT] : https://localhost:7198/trade/{tradeId}
+  - [DELETE] : https://localhost:7198/trade/{tradeId}
 # Comandos
   - dotnet watch run
   - donet run
