@@ -26,7 +26,7 @@
     # Multiplas classes para a mesma interface.
       - Por padrão o framework utilizada a ultima instancia configurada no container.
         -  Para fazer seleções de instancia de injecao de dependencia, deve-se passar no 
-           construtor uma lista de   operacoes e buscar a operação desejada.
+           construtor uma lista de Interfaces e a partir de uma solicitação buscar a instancia desejada.
 # Comandos de execução
   - dotnet watch run
   - donet run
