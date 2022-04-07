@@ -22,6 +22,11 @@
       - Transient : Para cada instancia solicitada a partir do injetor de dependencia, é gerada uma nova instancia de objeto na memoria, só é discartado quando a requisição é encerrada.
 
       - Singleton : A instancia só é criada somente se for chamar via injetor mas a finalização do ciclo dela só encerra se a aplicação for finalizada.
+
+    # Multiplas classes para a mesma interface.
+      - Por padrão o framework utilizada a ultima instancia configurada no container.
+        -  Para fazer seleções de instancia de injecao de dependencia, deve-se passar no 
+           construtor uma lista de   operacoes e buscar a operação desejada.
 # Comandos de execução
   - dotnet watch run
   - donet run
