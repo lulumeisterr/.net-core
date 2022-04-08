@@ -30,8 +30,8 @@
 
 # Sobre Middleware
    
-   Middleware é como se fosse um componente no qual faz parte de um fluxo de execução(pipeline) da aplicação
-   funcionando no processamento de requisição http para aplicação, podendo ou não interromper um fluxo
+   Middleware é um componente isolado no qual faz parte de um fluxo de execução(pipeline) da aplicação
+   funcionando no processamento de requisição http, Exceptions etc, podendo ou não interromper um fluxo
    caso a solicitação nao seja atendida corretamente.
 
   - Run : adiciona um middleware ao pipeline do Asp.Net Core. Isso significa que após sua execução, ocorrerá uma interrupção do fluxo no pipeline causando um curto-circuito e nenhum outro middleware será executado.
@@ -40,7 +40,6 @@
 
   - Map : cria uma ramificação do pipeline com base no caminho informado. O exemplo abaixo do Microsoft docs, explica bem esse cenário.
 
-           construtor uma lista de Interfaces e a partir de uma solicitação buscar a instancia desejada.
 # Comandos de execução
   - dotnet watch run
   - donet run
