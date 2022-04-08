@@ -3,7 +3,7 @@ namespace web_project_api.app.Repositorys;
 
     public class TradeRepository : ITradeRepository
     {
-        private static List<Trade> trades;
+        public static List<Trade> trades;
         
         public TradeRepository() {
             if (trades == null) {
@@ -33,6 +33,10 @@ namespace web_project_api.app.Repositorys;
         public void deleteTradeById (int tradeId) {
              var tradeSaved = getTradeById(tradeId);
              trades.Remove(tradeSaved);
+        }
+
+        public IEnumerable<Trade> getAllTrades() {
+            return trades;
         }
 
         public List<Trade>  Trades { 

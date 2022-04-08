@@ -8,5 +8,7 @@ namespace web_project_api.app.Repositorys
          void deleteTradeById (int tradeId);
          Trade getTradeById(int tradeId);
          IEnumerable<Trade> searchTradeByDate(DateTime dateStart, DateTime endDate);
+
+         IEnumerable<Trade> getAllTrades();
     }
 }

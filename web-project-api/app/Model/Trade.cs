@@ -10,9 +10,6 @@ namespace web_project_api.app.Model
             this.tradingDate = tradingDate;
             this.tradeStatusCode = tradeStatusCode;
         }
-
-        public Trade() {}
-
 //getset
         public DateTime TradingDate { 
             get => tradingDate; 

@@ -42,13 +42,24 @@ public class TradeController : ControllerBase
             }
         }
 
-        [HttpGet("/trades")]
+        [HttpGet("/tradesRange")]
         public IActionResult getTradeByRangeDate([FromQuery] DateTime startDate , [FromQuery] DateTime endDate) {
             var result = tradeRepository.searchTradeByDate(startDate,endDate);
             if ( result == null || !result.Any() ) {
                 return NoContent();
             } else {
                 return Ok( tradeRepository.searchTradeByDate(startDate,endDate) ); 
+            }
+        }
+
+        
+        [HttpGet("/trades")]
+        public IActionResult getAllTrades() {
+            var result = tradeRepository.getAllTrades();
+            if ( result == null || !result.Any() ) {
+                return NoContent();
+            } else {
+                return Ok( tradeRepository.getAllTrades() ); 
             }
         }
     }

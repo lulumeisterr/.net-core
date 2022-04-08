@@ -27,6 +27,19 @@
       - Por padrão o framework utilizada a ultima instancia configurada no container.
         -  Para fazer seleções de instancia de injecao de dependencia, deve-se passar no 
            construtor uma lista de   operacoes e buscar a operação desejada.
+
+# Sobre Middleware
+   
+   Middleware é como se fosse um componente no qual faz parte de um fluxo de execução(pipeline) da aplicação
+   funcionando no processamento de requisição http para aplicação, podendo ou não interromper um fluxo
+   caso a solicitação nao seja atendida corretamente.
+
+  - Run : adiciona um middleware ao pipeline do Asp.Net Core. Isso significa que após sua execução, ocorrerá uma interrupção do fluxo no pipeline causando um curto-circuito e nenhum outro middleware será executado.
+
+  - Use : adiciona um middleware in-line no pipeline, Isso significa que após a execução desse middleware, ele fará uma chamada para o próximo.
+
+  - Map : cria uma ramificação do pipeline com base no caminho informado. O exemplo abaixo do Microsoft docs, explica bem esse cenário.
+
 # Comandos de execução
   - dotnet watch run
   - donet run

@@ -1,4 +1,8 @@
-using web_project_api.app.Repositorys;
+using ITradeRepository = web_project_api.app.Repositorys.ITradeRepository;
+using TradeRepository = web_project_api.app.Repositorys.TradeRepository;
+using MiddleWareConfiguration = web_project_api.app.middleware.MiddleWareFilterHttpRequest;
+using web_project_api.app.middleware;
+
 /**
   Builder responsavel por
   ficar como listening para o recebimento de requisição
@@ -7,11 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 //Configuração de injeção de dependencias.
-builder.Services.AddScoped<ITradeRepository,TradeRepository>();
-var app = builder.Build();
+builder.Services.AddTransient<ITradeRepository,TradeRepository>();
 
+var app = builder.Build();
 app.MapControllers();
+app.firstMiddleware();
 app.Run();
+
 
 /****
         app.MapPost("/trades", (Trade trade) => {
