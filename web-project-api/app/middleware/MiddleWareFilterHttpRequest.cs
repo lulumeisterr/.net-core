@@ -18,7 +18,7 @@ namespace web_project_api.app.middleware;
     
     public async Task InvokeAsync(HttpContext context) {
         Console.WriteLine("\n\r----- Iniciando meu 1 middleware -----\n\r");
-        int getTradesQtd = _tradeRepository.getAllTrades().Count();
+        int getTradesQtd = _tradeRepository.GetAllTrades().Count();
         if (getTradesQtd >= 3) {
             if (context.Request.Path.StartsWithSegments("/trades") && context.Request.Method == "POST") {
                 context.Response.StatusCode = 404;

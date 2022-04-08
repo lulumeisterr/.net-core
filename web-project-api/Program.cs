@@ -1,6 +1,5 @@
 using ITradeRepository = web_project_api.app.Repositorys.ITradeRepository;
 using TradeRepository = web_project_api.app.Repositorys.TradeRepository;
-using MiddleWareConfiguration = web_project_api.app.middleware.MiddleWareFilterHttpRequest;
 using web_project_api.app.middleware;
 
 /**

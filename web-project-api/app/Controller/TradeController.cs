@@ -11,20 +11,20 @@ public class TradeController : ControllerBase
         }
 
         [HttpPost("/trades")]
-        public IActionResult addTrade([FromBody] Trade trade) {
-            tradeRepository.add(trade);
+        public IActionResult AddTrade([FromBody] Trade trade) {
+            tradeRepository.Add(trade);
             return Created($"/trades/{trade.TradeId}",trade);
         }
 
         [HttpPut("/trades")]
-        public IActionResult updateTradeById([FromBody] Trade trade) {
-            return tradeRepository.updateTrade(trade) != null ? Ok(tradeRepository.updateTrade(trade)) : NoContent();
+        public IActionResult UpdateTradeById([FromBody] Trade trade) {
+            return tradeRepository.UpdateTrade(trade) != null ? Ok(tradeRepository.UpdateTrade(trade)) : NoContent();
         }
         
         [HttpDelete("/trades/{tradeId}")]
-        public IActionResult deleteTradeById([FromRoute] int tradeId) {
+        public IActionResult DeleteTradeById([FromRoute] int tradeId) {
            try {
-                tradeRepository.deleteTradeById(tradeId);
+                tradeRepository.DeleteTradeById(tradeId);
                 return Ok();
            } catch (Exception e) {
                 Console.WriteLine($"Generic Exception Handler: {e}");
@@ -33,33 +33,33 @@ public class TradeController : ControllerBase
         }
         
         [HttpGet("/trades/{tradeId}")]
-        public IActionResult getTradeById([FromRoute] int tradeId) {
-             var result = tradeRepository.getTradeById(tradeId);
+        public IActionResult GetTradeById([FromRoute] int tradeId) {
+             var result = tradeRepository.GetTradeById(tradeId);
             if (result != null ) {
-                return Ok(tradeRepository.getTradeById(tradeId));
+                return Ok(result);
             } else {
                 return NotFound();
             }
         }
 
         [HttpGet("/tradesRange")]
-        public IActionResult getTradeByRangeDate([FromQuery] DateTime startDate , [FromQuery] DateTime endDate) {
-            var result = tradeRepository.searchTradeByDate(startDate,endDate);
+        public IActionResult GetTradeByRangeDate([FromQuery] DateTime startDate , [FromQuery] DateTime endDate) {
+            var result = tradeRepository.SearchTradeByDate(startDate,endDate);
             if ( result == null || !result.Any() ) {
                 return NoContent();
             } else {
-                return Ok( tradeRepository.searchTradeByDate(startDate,endDate) ); 
+                return Ok( tradeRepository.SearchTradeByDate(startDate,endDate) ); 
             }
         }
 
         
         [HttpGet("/trades")]
-        public IActionResult getAllTrades() {
-            var result = tradeRepository.getAllTrades();
+        public IActionResult GetAllTrades() {
+            var result = tradeRepository.GetAllTrades();
             if ( result == null || !result.Any() ) {
                 return NoContent();
             } else {
-                return Ok( tradeRepository.getAllTrades() ); 
+                return Ok( tradeRepository.GetAllTrades() ); 
             }
         }
     }

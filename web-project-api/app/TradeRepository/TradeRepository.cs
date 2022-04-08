@@ -3,44 +3,38 @@ namespace web_project_api.app.Repositorys;
 
     public class TradeRepository : ITradeRepository
     {
-        public static List<Trade> trades;
+        public static List<Trade> _trades = new List<Trade>();
         
-        public TradeRepository() {
-            if (trades == null) {
-                trades = new List<Trade>();
-            }
+        public void Add (Trade trade) {
+            _trades.Add(trade);
         }
 
-        public void add (Trade trade) {
-            trades.Add(trade);
+        public Trade GetTradeById(int tradeId) {
+            return _trades.First(t => t.TradeId == tradeId);
         }
 
-        public Trade getTradeById(int tradeId) {
-            return trades.Where(t => t.TradeId == tradeId).FirstOrDefault();
+        public IEnumerable<Trade> SearchTradeByDate(DateTime dateStart, DateTime endDate) {
+            return _trades.Where(t => t.TradingDate >= dateStart && t.TradingDate <= endDate);
         }
 
-        public IEnumerable<Trade> searchTradeByDate(DateTime dateStart, DateTime endDate) {
-            return trades.Where(t => t.TradingDate >= dateStart && t.TradingDate <= endDate);
-        }
-
-        public Trade updateTrade(Trade trade) {
-            var tradeSaved = getTradeById(trade.TradeId);
+        public Trade UpdateTrade(Trade trade) {
+            var tradeSaved = GetTradeById(trade.TradeId);
             tradeSaved.TradeStatusCode = trade.TradeStatusCode;
             tradeSaved.TradingDate = trade.TradingDate;
             return tradeSaved;
         }
 
-        public void deleteTradeById (int tradeId) {
-             var tradeSaved = getTradeById(tradeId);
-             trades.Remove(tradeSaved);
+        public void DeleteTradeById (int tradeId) {
+             var tradeSaved = GetTradeById(tradeId);
+             _trades.Remove(tradeSaved);
         }
 
-        public IEnumerable<Trade> getAllTrades() {
-            return trades;
+        public IEnumerable<Trade> GetAllTrades() {
+            return _trades;
         }
 
         public List<Trade>  Trades { 
-            get => trades; 
-            set => trades = value; 
+            get => _trades; 
+            set => _trades = value; 
         }
     }
