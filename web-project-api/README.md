@@ -1,11 +1,11 @@
 # Configuração de portas
   - Properties > LaunchSetting > applicationUrl
 # Endpoints de teste
-  - [POST] : https://localhost:7198/trade
-  - [GET] : https://localhost:7198/trade?startDate=2022-04-01&endDate=2022-04-02
-  - [GET] : https://localhost:7198/trade/{tradeId}
-  - [PUT] : https://localhost:7198/trade/{tradeId}
-  - [DELETE] : https://localhost:7198/trade/{tradeId}
+  - [POST] : https://localhost:7198/trades
+  - [GET] : https://localhost:7198/trades?startDate=2022-04-01&endDate=2022-04-02
+  - [GET] : https://localhost:7198/trades/{tradeId}
+  - [PUT] : https://localhost:7198/trades/
+  - [DELETE] : https://localhost:7198/trades/{tradeId}
 
 # Sobre Injeção de dependências
   - Estamos criando a injeção de dependencias por construtor onde o mesmo
@@ -40,6 +40,7 @@
 
   - Map : cria uma ramificação do pipeline com base no caminho informado. O exemplo abaixo do Microsoft docs, explica bem esse cenário.
 
+           construtor uma lista de Interfaces e a partir de uma solicitação buscar a instancia desejada.
 # Comandos de execução
   - dotnet watch run
   - donet run
