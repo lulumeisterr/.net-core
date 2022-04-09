@@ -42,7 +42,7 @@ public class TradeController : ControllerBase
             }
         }
 
-        [HttpGet("/tradesRange")]
+        [HttpGet("/trades")]
         public IActionResult GetTradeByRangeDate([FromQuery] DateTime startDate , [FromQuery] DateTime endDate) {
             var result = tradeRepository.SearchTradeByDate(startDate,endDate);
             if ( result == null || !result.Any() ) {
