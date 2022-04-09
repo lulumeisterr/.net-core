@@ -12,7 +12,7 @@
     é identificado atraves de escopos. A Identificação de injeção ocorre
     por meios de contratos e referencia de contrato(Quem implementa o contrato).
     Para cada construtor na classe de servico, ou construtores assinados com classe
-    sempre devem ser especificado no escopo para que o framework consiga encontrar 
+    devem ser especificado no container, para que o framework consiga encontrar 
     todas as referencias necessarias. O Framework só associa a injeção se todos os pontos
     for mapeado corretamente.
 
