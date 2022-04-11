@@ -8,15 +8,18 @@ using web_project_api.app.middleware;
 **/
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
-
 //Configuração de injeção de dependencias.
 builder.Services.AddTransient<ITradeRepository,TradeRepository>();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
 app.MapControllers();
 app.firstMiddleware();
+app.UseSwaggerUI();
+app.UseSwagger(x => x.SerializeAsV2 = true);
 app.Run();
-
 
 /****
         app.MapPost("/trades", (Trade trade) => {

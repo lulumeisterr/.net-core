@@ -3,8 +3,8 @@ namespace web_project_api.app.Repositorys;
 
     public class TradeRepository : ITradeRepository
     {
-        public static List<Trade> _trades = new List<Trade>();
-        
+        public static List<Trade> _trades { get; set;} = _trades = new List<Trade>();
+                
         public void Add (Trade trade) {
             _trades.Add(trade);
         }
@@ -31,10 +31,5 @@ namespace web_project_api.app.Repositorys;
 
         public IEnumerable<Trade> GetAllTrades() {
             return _trades;
-        }
-
-        public List<Trade>  Trades { 
-            get => _trades; 
-            set => _trades = value; 
         }
     }

@@ -42,7 +42,7 @@ public class TradeController : ControllerBase
             }
         }
 
-        [HttpGet("/tradesRange")]
+        [HttpGet("/tradesByDate")]
         public IActionResult GetTradeByRangeDate([FromQuery] DateTime startDate , [FromQuery] DateTime endDate) {
             var result = tradeRepository.SearchTradeByDate(startDate,endDate);
             if ( result == null || !result.Any() ) {
@@ -61,5 +61,10 @@ public class TradeController : ControllerBase
             } else {
                 return Ok( tradeRepository.GetAllTrades() ); 
             }
+        }
+
+        [HttpGet("/configuration/application")]
+        public IActionResult configuration ([FromServices] IConfiguration configuration) {
+            return Ok($"{configuration["project:applicationName"]}/{configuration["project:applicationVersion"]}");
         }
     }

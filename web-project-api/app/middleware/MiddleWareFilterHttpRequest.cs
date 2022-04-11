@@ -17,16 +17,20 @@ namespace web_project_api.app.middleware;
     }
     
     public async Task InvokeAsync(HttpContext context) {
-        Console.WriteLine("\n\r----- Iniciando meu 1 middleware -----\n\r");
-        int getTradesQtd = _tradeRepository.GetAllTrades().Count();
-        if (getTradesQtd >= 3) {
+        int getTradesQtd = _tradeRepository != null ? _tradeRepository.GetAllTrades().Count() : throw new Exception("Erro");
+
+        if (getTradesQtd >= 10) {
             if (context.Request.Path.StartsWithSegments("/trades") && context.Request.Method == "POST") {
+                context.Response.StatusCode = 404;
+                await context.Response.WriteAsync("Limite de requisição atiginda");
+            }
+
+            if( context.Request.Path.StartsWithSegments("/tradesByDate")  && context.Request.Method == "GET") {
                 context.Response.StatusCode = 404;
                 await context.Response.WriteAsync("Limite de requisição atiginda");
             }
         } else {
             await _next(context);
-            Console.WriteLine("\n\r----- Finalizando meu 1 middleware -----\n\r");
         }
       }
 }
